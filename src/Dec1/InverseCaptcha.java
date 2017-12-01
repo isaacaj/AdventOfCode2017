@@ -23,11 +23,11 @@ public class InverseCaptcha
         int consecutiveTotal = 0;
 
         // Iterates through each number in captcha
-        for(int i = 1; i <= captcha.length(); i++)
+        for(int i = 1; i <= captcha.length() - 1; i++)
         {
             captchaList[i] = Integer.parseInt(captcha.substring(i - 1, i));
 
-            if (captchaList[i] == captchaList[i - 1])
+            if (captchaList[i - 1] == captchaList[i])
             {
                 consecutiveTotal += captchaList[i];
             }
@@ -36,6 +36,6 @@ public class InverseCaptcha
         System.out.println("Running total: " + consecutiveTotal);
 
         // If this statement prints `true`, add the first digit to the total.
-        System.out.println(captchaList[1] == captchaList[captchaList.length - 1]);
+        System.out.println(captchaList[0] == captchaList[captcha.length()]);
     }
 }
